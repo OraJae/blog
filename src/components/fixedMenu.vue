@@ -7,9 +7,9 @@
       </div>
       <div class="compare-con">
         <el-table :data="tableData" style="width: 100%">
-          <el-table-column type="index" width="50"></el-table-column>
+          <!-- <el-table-column type="index" width="50"></el-table-column> -->
           <el-table-column prop="func" label="方法"> </el-table-column>
-          <el-table-column prop="desc" label="描述"> </el-table-column>
+          <el-table-column prop="desc" label="描述" min-width="200"> </el-table-column>
         </el-table>
       </div>
     </div>
@@ -31,7 +31,7 @@
       compareStyle() {
         return this.showCompare
           ? { transform: 'translate(0, 0)' }
-          : { transform: 'translate(242px, 0)' }
+          : { transform: 'translate(342px, 0)' }
       },
     },
     mounted() {},
@@ -74,7 +74,7 @@
     .compare-con {
       width: 342px;
       height: 600px;
-      padding: 1px;
+      padding: 16px;
       box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.18);
       background-color: #fff;
       position: relative;
