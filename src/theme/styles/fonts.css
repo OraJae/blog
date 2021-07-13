@@ -1,0 +1,121 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 1338906 */
+  src: url('//at.alicdn.com/t/font_1338906_gwuy6vukx3.eot');
+  src: url('//at.alicdn.com/t/font_1338906_gwuy6vukx3.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1338906_gwuy6vukx3.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1338906_gwuy6vukx3.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1338906_gwuy6vukx3.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1338906_gwuy6vukx3.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --iconMap: (
+    warn: 63d,
+    cart: 63c,
+    noFav: 63b,
+    phone: 63a,
+    fav: 639,
+    check: 638,
+    aUp: 637,
+    aDown: 636,
+    search: 635,
+    charge: 634,
+    collect: 640,
+    rank: 632,
+    group: 631,
+    gou: 60a,
+    iDown: 730,
+    iUp: 727,
+    down: 63e,
+    up: 6d5,
+    logout: 616,
+    person: 624,
+    tb: 600,
+    tm: 612,
+    success: 613,
+    fail: 611,
+    edit: 61a,
+    aLeft: 601,
+    aRight: 602,
+    sup: 628,
+    notsup: 627,
+    tocollect: 659,
+    uncollect: 696,
+    tosubscribe: 69a,
+    unsubscribe: 697,
+    tofollow: 699,
+    unfollow: 694,
+    analysis: 641,
+    qrCode: 603,
+    live: 642,
+    monitor: 657,
+    stock: 643,
+    monitor-icon: 695,
+    signal: 65a,
+    blogger: 681,
+    treasure: 65c,
+    menuOn: 60f,
+    menuOff: 610,
+    date: 682,
+    brand: 646,
+    rank-icon: 858,
+    collect2: 608,
+    more: 644,
+    query: 61b,
+    collect3: 626,
+    competitor: 66c,
+    vs: 687,
+    excel-icon: 623,
+    play-icon: 680,
+    pivot-icon: 65a,
+    screen-icon: 656,
+    activity: 673,
+    subscribe: 669,
+    noResult: 667,
+    change: 685,
+    heart: 66a,
+    comment: 66b,
+    share: 676,
+    hotword: 686,
+    link: 677,
+    coin: 674,
+    treasure2: 617,
+    myself: 941,
+    liveNum: 6dd,
+    consult: 658,
+    star: 653,
+    full: 655,
+    escfull: b98,
+    video: 7c2,
+    play: 61c,
+    menu: 62d,
+    sub: 622,
+    notsub: 666,
+    collect4: 67f,
+    compare: 67e,
+    live-review: 743,
+    vs1: 6d2,
+    user-icon-type: 6ec,
+    user-icon-shop: 70a,
+    user-icon-location: 660,
+    user-icon-male: 665,
+    user-icon-female: 669,
+    douyin: 65f,
+    kuaishou: 68c,
+    weibo: 65e
+  );
+}
+
+@each $name, $val in var(--iconMap) {
+  .icon-$(name):before {
+    content: "\e$(val)";
+  }
+}
