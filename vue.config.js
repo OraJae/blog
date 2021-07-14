@@ -17,6 +17,9 @@ module.exports = {
   // devServer: {
   //   progress: false
   // },
+  devServer: {
+    port: 6600
+  },
   css: {
     loaderOptions: {
       css: {

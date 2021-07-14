@@ -1,6 +1,8 @@
 <template>
   <div>
-    <array></array>
+    <div class="read-content">
+      <array></array>
+    </div>
     <fixedMenu :tableData="tableData"></fixedMenu>
   </div>
 </template>
@@ -78,4 +80,10 @@
   }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="postcss" scoped>
+.read-content{
+  width: 1000px;
+  margin: 0 auto;
+  /* background-color: #f5f5d5; */
+}
+</style>

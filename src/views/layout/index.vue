@@ -50,7 +50,8 @@
     overflow-y: auto;
   }
   .continer {
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color: #f5f5d5;
     padding: 16px;
     box-sizing: border-box;
     width: 100%;

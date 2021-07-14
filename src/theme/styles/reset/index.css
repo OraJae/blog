@@ -33,18 +33,16 @@ ol {
   list-style: none;
 }
 
-/* h1,
-h2,
-h3,
+
 h4,
 h5 {
-  font-size: 100%;
+  /* font-size: 100%; */
   font-weight: normal;
-} */
+}
 
 /* bass css */
 body {
-  font: 14px/1.8 "Microsoft YaHei", tahoma, "\5b8b\4f53", sans-serif;
+  font: 14px/1.8  "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif, "\5b8b\4f53", sans-serif;
   color: #656565;
 }
 
