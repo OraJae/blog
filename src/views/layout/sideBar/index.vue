@@ -45,12 +45,6 @@
       // })
     },
     methods: {
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath)
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath)
-      },
       handleSelect(i) {
         this.curIndex = i
       },
@@ -58,9 +52,9 @@
   }
 </script>
 
-<style lang="postcss" scope>
-  @import '@app/theme/styles/variable/index.css';
-  /* @import "~@/theme/styles/animation/index.css"; */
+<style lang="scss" scope>
+  @import '@styles/variable/index.scss';
+  @import '@styles/animation/index.scss';
   .nav-side-bar {
     width: 180px;
     height: 100%;

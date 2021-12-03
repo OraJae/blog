@@ -17,7 +17,6 @@ export default {
 </script>
 
 <style>
-@import "@app/theme/styles/index.css";
 #app {
   height: 100%;
   width: 100%;

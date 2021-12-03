@@ -6,12 +6,16 @@ function postcss () {
     plugins: {
       autoprefixer: {},
       'postcss-import': {
-        resolve: (id) => {
-          if (id.indexOf('@app') > -1) {
-            return resolve(id.replace('@app', './src'), process.cwd())
-          }
-          return id
-        }
+        // resolve: (id) => {
+        //   if (id.indexOf('@app') > -1) {
+        //     return resolve(id.replace('@app', './src'), process.cwd())
+        //   } else if (id.indexOf('@styles') > -1) {
+        //     return resolve(id.replace('@styles', './src/theme/styles'), process.cwd())
+        //   } else if (id.indexOf('@images') > -1) {
+        //     return resolve(id.replace('@images', './src/theme/images'), process.cwd())
+        //   }
+        //   return id
+        // }
       },
       'postcss-each-variables': {},
       'postcss-url': {},

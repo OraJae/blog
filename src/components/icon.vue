@@ -13,6 +13,6 @@ export default {
   }
 }
 </script>
-<style>
-@import "@app/theme/styles/fonts.css";
+<style lang="scss">
+// @import "@styles/fonts.css";
 </style>

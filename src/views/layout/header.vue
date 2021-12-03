@@ -62,8 +62,7 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
-/* @import "@app/theme/styles/variable/index.css"; */
+<style lang="scss" scoped>
 @keyframes anim1 {
   0% {
     top: 0;
