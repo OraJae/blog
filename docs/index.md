@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Welcome to GitHub Pages OraJae
 
 You can use the [editor on GitHub](https://github.com/OraJae/blog/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
 
