@@ -1,25 +1,28 @@
 <template>
   <div>
     <div class="read-content">
-      <array></array>
+      <!-- <array></array> -->
+      <div id="preview"></div>
     </div>
-    <fixedMenu :tableData="tableData"></fixedMenu>
+    <!-- <fixedMenu :tableData="tableData"></fixedMenu> -->
   </div>
 </template>
 
 <script>
-import array from './item/数组方法'
-import fixedMenu from '@/components/fixedMenu'
+// import markdownText from './item/index.md'
+import Vditor from 'vditor'
+// import fixedMenu from '@/components/fixedMenu'
 const fs = require('fs')
 export default {
   name: '',
   mixins: [],
   components: {
-    array,
-    fixedMenu
+    // fixedMenu
   },
   data() {
     return {
+      vditor: null,
+      contentEditor: null,
       tableData: [
         {
           func: 'shift()',
@@ -77,16 +80,71 @@ export default {
   watch: {},
   created() {
     let fileRead = new FileReader()
-    const vue = fileRead.readAsText('./item/数组方法.vue')
-    console.log(vue)
+    // const vue = fileRead.readAsText('./item/数组方法.vue')
+    // console.log(vue)
   },
-  methods: {}
+  mounted() {
+    console.log(123)
+    window.vditor = new Vditor('preview', {
+      value: '### 娇娇是个大傻得儿',
+      placeholder: 'Hello, Vditor!',
+      // after: () => {
+      //   vditor.setValue('Vue Composition API + Vditor + TypeScript Minimal Example')
+      // }
+    })
+    // fetch('markdown/zh_CN.md')
+    //   .then((response) => response.text())
+    //   .then((markdown) => {
+    //     this.contentEditor = new Vditor('vditor', {
+    //       width: '100%',
+    //       height: 360,
+    //       toolbarConfig: {
+    //         pin: true
+    //       },
+    //       cache: {
+    //         enable: false
+    //       },
+    //       after: () => {
+    //         this.contentEditor.setValue(markdownText)
+    //       }
+    //     })
+    //   })
+  },
+  methods: {
+    initVditorContent() {
+      fetch('/docs/index.md')
+        .then((response) => {
+          console.log(response)
+          return response.text()
+        })
+        .then((markdown) => {
+          console.log(markdown)
+          Vditor.preview(document.getElementById('preview'), markdown, {
+            speech: {
+              enable: true
+            },
+            anchor: 1,
+            after() {
+              // if (window.innerWidth <= 768) {
+              //   return
+              // }
+              // const outlineElement = document.getElementById('outline')
+              // Vditor.outlineRender(document.getElementById('preview'), outlineElement)
+              // if (outlineElement.innerText.trim() !== '') {
+              //   outlineElement.style.display = 'block'
+              //   initOutline()
+              // }
+            }
+          })
+        })
+    }
+  }
 }
 </script>
 
 <style lang="postcss" scoped>
 .read-content {
-  width: 1000px;
+  /* width: 1000px; */
   margin: 0 auto;
   /* background-color: #f5f5d5; */
 }

@@ -1,6 +1,5 @@
 // menuId 菜单ID,用于菜单权限配置
 // newId 控制新上线功能 news 图标,
-
 export const navMenus = [
   {
     icon: 'group',
@@ -15,6 +14,13 @@ export const navMenus = [
     //     name: 'document-js'
     //   }
     // ]
+  },
+  {
+    icon: '',
+    text: '贪吃蛇',
+    path: '/snake',
+    name: 'snake',
+    children: []
   },
   // {
   //   icon: 'stock',

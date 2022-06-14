@@ -94,6 +94,7 @@
         child.path && this.$router.push(child.path)
       },
       handleMenuClick(item) {
+        console.log(item)
         if (!item.path && !item.children.length) {
           this.$message.success('即将推出，敬请期待')
           return

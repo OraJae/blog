@@ -12,7 +12,7 @@ const pages = {
   }
 }
 module.exports = {
-  publicPath: '/vue-note',
+  publicPath: '/',
   outputDir: 'dist',
   productionSourceMap: !isProduction,
   // pages,
