@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <sideBar></sideBar>
-    <div class="content" id="content">
+    <div id="content">
       <div class="continer">
         <!-- <transition name="el-fade-in-linear"> -->
         <router-view />
@@ -33,7 +33,7 @@ export default {
 <style lang="postcss" scoped>
 .wrapper {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   background-color: #f5f5f5;
   .layout-nav {
@@ -41,17 +41,18 @@ export default {
   }
 }
 
-.content {
+#content {
+  margin-left: 180px;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   box-sizing: border-box;
   padding: 16px;
   /* background-color: #000; */
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 .continer {
-  /* background-color: #fff; */
-  background-color: #f5f5d5;
+  background-color: #fff;
+  /* background-color: #f5f5d5; */
   padding: 16px;
   box-sizing: border-box;
   width: 100%;

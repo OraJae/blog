@@ -1,4 +1,4 @@
-# vue-note
+# web lab
 
 ## Project setup
 ```

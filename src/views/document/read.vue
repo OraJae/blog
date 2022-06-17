@@ -1,12 +1,13 @@
 <template>
   <div>
-    <div id="markBox"></div>
-    <fixedMenu :tableData="tableData"></fixedMenu>
+    <div id="preview"></div>
+    <div id="outline"></div>
+    <!-- <fixedMenu :tableData="tableData"></fixedMenu> -->
   </div>
 </template>
 
 <script>
-import fixedMenu from '@/components/fixedMenu'
+// import fixedMenu from '@/components/fixedMenu'
 import axios from 'axios'
 import { marked } from 'marked'
 import Vditor from 'vditor'
@@ -14,62 +15,12 @@ export default {
   name: '',
   mixins: [],
   components: {
-    fixedMenu
+    // fixedMenu
   },
   data() {
     return {
       contentEditor: null,
-      markedStr: '',
-      tableData: [
-        {
-          func: 'shift()',
-          desc: '删除数组的第一个元素'
-        },
-        {
-          func: 'pop()',
-          desc: '删除数组中最后一个元素'
-        },
-        {
-          func: 'unshift()',
-          desc: '在数组开头增加一个或多个元素'
-        },
-        {
-          func: 'push()',
-          desc: '在数组末尾增加一个或多个元素'
-        },
-        {
-          func: 'splice()',
-          desc: '在任意的位置给数组添加或删除任意个元素'
-        },
-        {
-          func: 'slice()',
-          desc: '	从已有的数组中提取一段元素'
-        },
-        {
-          func: 'sort()',
-          desc: '对数组的元素进行排序'
-        },
-        {
-          func: 'reverse()',
-          desc: '翻转数组排列顺序'
-        },
-        {
-          func: 'join()',
-          desc: '把数组中的所有元素拼接成一个字符串'
-        },
-        {
-          func: 'some()',
-          desc: '检验数组中的每个元素是否都满足测试函数，只要有一个返回ture就停止循环'
-        },
-        {
-          func: 'every()',
-          desc: '检验数组中的每个元素是否都满足测试函数'
-        },
-        {
-          func: 'filter()',
-          desc: '检查指定数组中符合条件的所有元素'
-        }
-      ]
+      markedStr: ''
     }
   },
   props: {},
@@ -78,32 +29,55 @@ export default {
   created() {
     this.readMD()
   },
-  beforeDestroy() {
-    this.contentEditor.destroy()
-  },
+  beforeDestroy() {},
   methods: {
     readMD() {
-      axios.get('/markdown/数组方法.md').then((res) => {
-        // this.markedStr = marked.parse(res.data)
+      axios.get('/markdown/array.md').then((res) => {
         this.markedStr = res.data
         this.renderVditor()
       })
     },
     renderVditor() {
-      this.contentEditor = new Vditor('markBox', {
-        value: this.markedStr,
-        toolbarConfig: {
-          hide: true
+      // this.contentEditor = new Vditor('preview', {
+      //   value: this.markedStr,
+      //   cache: {
+      //     enable: false
+      //   },
+      // })
+      const outlineElement = document.getElementById('outline')
+      const previewElement = document.getElementById('preview')
+      Vditor.preview(previewElement, this.markedStr, {
+        markdown: {
+          toc: true
         },
-        cache: {
-          enable: false
+        speech: {
+          enable: true
         },
-        preview: {
-          markdown: {
-            toc: true,
-            mark: true,
-            footnotes: true,
-            autoSpace: true
+        anchor: 1,
+        after() {
+          if (window.innerWidth <= 768) {
+            return
+          }
+          Vditor.outlineRender(previewElement, outlineElement)
+          if (outlineElement.innerText.trim() !== '') {
+            outlineElement.style.display = 'block'
+          }
+        },
+        lazyLoadImage: 'https://unpkg.com/vditor/dist/images/img-loading.svg',
+        renderers: {
+          renderHeading: (node, entering) => {
+            const id = Lute.GetHeadingID(node)
+            if (entering) {
+              return [
+                `<h${node.__internal_object__.HeadingLevel} id="${id}" class="vditor__heading"><span class="prefix"></span><span>`,
+                Lute.WalkContinue
+              ]
+            } else {
+              return [
+                `</span><a id="vditorAnchor-${id}" class="vditor-anchor" href="#${id}"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h${node.__internal_object__.HeadingLevel}>`,
+                Lute.WalkContinue
+              ]
+            }
           }
         }
       })
@@ -113,12 +87,29 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
->>> #markBox {
+>>> #preview {
   width: 1000px;
   /* margin: 60px auto; */
   /* background-color: #f5f5d5; */
   .vditor-reset {
-    padding: 40px 443px !important;
+    padding: 40px 343px !important;
   }
+}
+#outline {
+  display: none;
+  position: fixed;
+  width: 186px;
+  top: 64px;
+  right: 20px;
+  bottom: 20px;
+  overflow: auto;
+  font-size: 12px;
+  border-left: 1px solid var(--border-color);
+  border-right: 0;
+  z-index: 10;
+  --border-color: #eee;
+  --toolbar-icon-hover-color: #4285f4;
+  --textarea-text-color: #616161;
+  --hover-background-color: #f6f8fa;
 }
 </style>

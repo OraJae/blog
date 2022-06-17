@@ -71,6 +71,9 @@ export default {
   transition: width 0.3s;
   will-change: width;
   background: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
   &.fold {
     width: 66px;
     overflow: inherit;
@@ -238,6 +241,8 @@ export default {
   display: block;
   color: #656565;
   cursor: pointer;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e9ecef;
   img {
     vertical-align: middle;
     height: 32px;
