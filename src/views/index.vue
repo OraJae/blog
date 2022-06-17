@@ -78,9 +78,9 @@ export default {
           ]
         },
         {
-          subtitleA: 'Game',
-          subtitleB: '游戏',
-          describe: '玩会游戏，放松一下',
+          subtitleA: 'Relax',
+          subtitleB: '休息',
+          describe: '劳逸结合，放松一下',
           list: [
             {
               icon: 'el-icon-attract',
@@ -93,6 +93,12 @@ export default {
               letter: 'Sleep Music',
               text: '催眠曲',
               path: '/sleep'
+            },
+            {
+              icon: 'el-icon-attract',
+              letter: 'Goddess',
+              text: '女神',
+              path: '/goddess'
             }
           ]
         }

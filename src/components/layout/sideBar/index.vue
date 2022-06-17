@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-side-bar">
+  <el-card class="nav-side-bar">
     <a class="logo" @click="toHome"><img :src="logo" alt="logo" /> web实验室</a>
     <ul class="side-menu" ref="menus">
       <item
@@ -14,7 +14,7 @@
       >
       </item>
     </ul>
-  </div>
+  </el-card>
 </template>
 
 <script>
@@ -74,6 +74,7 @@ export default {
   position: fixed;
   left: 0;
   top: 0;
+  padding: 0;
   &.fold {
     width: 66px;
     overflow: inherit;

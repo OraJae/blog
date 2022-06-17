@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <el-card class="p-r">
     <div id="preview"></div>
     <div id="outline"></div>
     <!-- <fixedMenu :tableData="tableData"></fixedMenu> -->
-  </div>
+  </el-card>
 </template>
 
 <script>
@@ -87,6 +87,9 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.el-card {
+  height: 100%;
+}
 >>> #preview {
   width: 1000px;
   /* margin: 60px auto; */
@@ -103,7 +106,7 @@ export default {
   right: 20px;
   bottom: 20px;
   overflow: auto;
-  font-size: 12px;
+  font-size: 16px;
   border-left: 1px solid var(--border-color);
   border-right: 0;
   z-index: 10;

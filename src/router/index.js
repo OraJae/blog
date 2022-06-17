@@ -1,19 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Layout from '@/views/layout'
-// import pathMenu from './utils/pathMenu'
-import $C from '@/consts'
-// import $api from '@/apiProvider'
-// import store from '../store'
-// import liveReqs from '@quick-ent/utils/interceptors/liveReqs'
-// import confirm from '@/utils/confirm'
-let routers = []
-const request = require.context('./', false, /^((?!index).)*\.js$/)
+import Layout from '@com/layout'
+// let routers = []
+// const request = require.context('./', false, /^((?!index).)*\.js$/)
 
-request.keys().forEach((path) => {
-  const module = request(path).default || request(path)
-  routers.push(module)
-})
+// request.keys().forEach((path) => {
+//   const module = request(path).default || request(path)
+//   routers.push(module)
+// })
 
 Vue.use(Router)
 const router = new Router({
@@ -30,19 +24,52 @@ const router = new Router({
   //     ]
   //   }
   // ]
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'index',
       component: () => import('@/views/index')
       // redirect: '/document/menu',
     },
     {
+      path: '/document',
+      redirect: '/document/menu',
+      name: 'document',
+      component: Layout,
+      children: [{
+          path: 'menu',
+          name: 'document-menu',
+          meta: {
+            title: '文档菜单',
+            navName: 'document-menu'
+          },
+          component: () => import('@/views/document/menu')
+        },
+        {
+          path: 'read',
+          name: 'document-read',
+          meta: {
+            title: '文档阅览',
+            navName: 'document-read'
+          },
+          component: () => import('@/views/document/read')
+        }
+      ]
+    },
+    {
       path: '/sleep',
       name: 'sleep',
       component: () => import('@/views/sleep')
     },
-    ...routers
+    {
+      path: '/snake',
+      name: 'snake',
+      component: () => import('@/views/snake'),
+    },
+    {
+      path: '/goddess',
+      name: 'goddess',
+      component: () => import('@/views/goddess'),
+    }
   ]
 })
 

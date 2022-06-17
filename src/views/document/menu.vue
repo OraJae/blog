@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <el-card style="height: 100%">
     <el-row :gutter="20">
       <el-col :span="3">
         <el-card class="box-card" @click.native="routerTo">
@@ -15,7 +15,7 @@
         </el-card>
       </el-col>
     </el-row>
-  </div>
+  </el-card>
 </template>
 
 <script>
