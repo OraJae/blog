@@ -1,5 +1,4 @@
-import { getRandomInt } from '@/utils/help'
-
+import $help from '@/utils/help'
 class Food {
   constructor(opsition) {
     opsition = opsition || {}
@@ -18,8 +17,8 @@ class Food {
     var div = document.createElement('div')
     map.appendChild(div)
     this.arr.push(div)
-    this.x = getRandomInt(0, map.offsetWidth / this.width - 1) * this.width
-    this.y = getRandomInt(0, map.offsetHeight / this.height - 1) * this.height
+    this.x = $help.getRandomInt(0, map.offsetWidth / this.width - 1) * this.width
+    this.y = $help.getRandomInt(0, map.offsetHeight / this.height - 1) * this.height
 
     div.style.left = this.x + 'px'
     div.style.top = this.y + 'px'

@@ -56,7 +56,6 @@
 </template>
 
 <script>
-import { getRandomInt } from '@/utils/help'
 export default {
   name: '',
   mixins: [],
@@ -103,10 +102,12 @@ export default {
   props: {},
   computed: {},
   watch: {},
-  created() {},
+  created() {
+    console.log(this.$help.isMobile())
+  },
   methods: {
     getColor() {
-      return this.colors[getRandomInt(0, this.colors.length)]
+      return this.colors[this.$help.getRandomInt(0, this.colors.length)]
     },
     routerTo(path) {
       this.$router.push(path)
