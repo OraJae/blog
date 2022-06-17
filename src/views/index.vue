@@ -96,8 +96,8 @@ export default {
             },
             {
               icon: 'el-icon-attract',
-              letter: 'Goddess',
-              text: '女神',
+              letter: 'Goddess or Tomboy',
+              text: '女神 || 女汉子',
               path: '/goddess'
             }
           ]
